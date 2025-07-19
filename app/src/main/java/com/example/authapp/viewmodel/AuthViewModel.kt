@@ -28,7 +28,7 @@ class AuthViewModel (private val repository : AuthRepository ) : ViewModel() {
             onResult (name)
         }
     }
-    un loginWithGoogle (idToken: String, onResult : (Boolean) -> Unit) {
+    fun loginWithGoogle (idToken: String, onResult : (Boolean) -> Unit) {
         viewModelScope.launch {
             val success = repository .loginWithGoogle( idToken)
             onResult (success)

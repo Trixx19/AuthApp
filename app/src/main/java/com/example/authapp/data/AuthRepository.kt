@@ -1,4 +1,6 @@
 package com.example.authapp.data
+
+
 import android.content.Context
 import android.util.Log
 import com.example.authapp.R
@@ -70,7 +72,7 @@ class AuthRepository {
     // Login com Google
     fun getGoogleSignInClient (context: Context): GoogleSignInClient {
         val gso = GoogleSignInOptions .Builder( GoogleSignInOptions .DEFAULT_SIGN_IN)
-            .requestIdToken( context.getString(br.ufc.quixada.authaula. R.string.default_web_client_id))
+            .requestIdToken(context.getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
         return GoogleSignIn .getClient( context, gso)
