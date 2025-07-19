@@ -37,8 +37,8 @@ class AuthViewModel (private val repository : AuthRepository ) : ViewModel() {
     fun getGoogleSignInClient (context: Context): GoogleSignInClient {
         return repository .getGoogleSignInClient( context)
     }
-    fun logout() {
-        repository .logout()
+    fun logout(context: Context) {
+        repository.logout(context)
     }
     fun register (email: String, password : String, name: String, onResult : (Boolean) -> Unit) {
         viewModelScope.launch {

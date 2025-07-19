@@ -1,5 +1,6 @@
 package com.example.authapp.ui.view
 
+import androidx.compose.ui.graphics.Color
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -124,7 +125,7 @@ fun LoginScreen(viewModel: AuthViewModel, navController: NavController) {
                         painter = painterResource(id = R.drawable.logo_google),
                         contentDescription = "Google Login",
                         modifier = Modifier.size(24.dp),
-                        tint = MaterialTheme.colorScheme.onPrimary
+                        tint = Color.Unspecified
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text("Entrar com Google", fontSize = 18.sp)

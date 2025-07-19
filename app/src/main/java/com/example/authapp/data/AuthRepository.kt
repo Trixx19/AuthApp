@@ -12,6 +12,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 
+
 class AuthRepository {
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -108,11 +109,12 @@ class AuthRepository {
     }
 
     // Logout
-    fun logout() {
+    fun logout(context: Context) {
+        // 1. Encerra a sessão do Firebase
         auth.signOut()
-    }
-    // Verifica se o usuário está logado
-    fun isUserLogged (): Boolean {
-        return auth.currentUser != null
+
+        // 2. Encerra a sessão do Google para permitir a troca de contas
+        val googleSignInClient = getGoogleSignInClient(context)
+        googleSignInClient.signOut()
     }
 }
